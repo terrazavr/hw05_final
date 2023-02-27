@@ -123,12 +123,10 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 LEN_TEXT = 15
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
-
-

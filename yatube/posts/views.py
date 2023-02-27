@@ -14,6 +14,7 @@ def get_page(request, posts):
     page_number = request.GET.get('page')
     return paginator.get_page(page_number)
 
+
 @cache_page(20)
 def index(request):
     posts = Post.objects.all()
@@ -61,6 +62,7 @@ def post_detail(request, post_id):
                'comments': comments}
     return render(request, 'posts/post_detail.html', context)
 
+
 @login_required
 def add_comment(request, post_id):
     post = get_object_or_404(Post, id=post_id)
@@ -71,6 +73,7 @@ def add_comment(request, post_id):
         comment.author = request.user
         comment.save()
     return redirect('posts:post_detail', post_id=post_id)
+
 
 @login_required
 def post_create(request):
@@ -88,6 +91,7 @@ def post_create(request):
         return redirect('posts:profile', request.user.username)
 
     return render(request, 'posts/create_post.html', context)
+
 
 @login_required
 def post_edit(request, post_id):
@@ -116,12 +120,14 @@ def post_edit(request, post_id):
 
     return redirect('posts:post_detail', post_id=post_id)
 
+
 @login_required
 def follow_index(request):
     posts = Post.objects.filter(author__following__user=request.user)
     page = get_page(request, posts)
     context = {'page_obj': page}
     return render(request, 'posts/follow.html', context)
+
 
 @login_required
 def profile_follow(request, username):
@@ -130,6 +136,7 @@ def profile_follow(request, username):
     if author != user:
         Follow.objects.get_or_create(user=user, author=author)
     return redirect('posts:profile', username=username)
+
 
 @login_required
 def profile_unfollow(request, username):

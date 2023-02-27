@@ -6,7 +6,7 @@ from .models import Post, Comment
 class PostForm(ModelForm):
     class Meta:
         model = Post
-        fields = ('group', 'text', 'image') 
+        fields = ('group', 'text', 'image')
 
         labels = {
             'text': 'Tекст поста',
@@ -29,4 +29,4 @@ class CommentForm(ModelForm):
         widgets = {
             'text': Textarea(attrs={'class': 'form-control',
                                     'placeholder': 'Комментарий тут'})
-        } 
+        }

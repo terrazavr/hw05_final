@@ -91,7 +91,8 @@ class PostURLTests(TestCase):
 
     def test_comments(self):
         """Комментарии недоступны гостю."""
-        response = self.client.get(COMMENTS_URL, kwargs={'post_id': self.post.id})
+        response = self.client.get(COMMENTS_URL,
+                                   kwargs={'post_id': self.post.id})
         self.assertEqual(response.status_code, 404)
 
     # Тесты с редиректами пользователей без определенных прав
