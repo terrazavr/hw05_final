@@ -10,7 +10,8 @@ class PostForm(ModelForm):
 
         labels = {
             'text': 'Tекст поста',
-            'group': 'Группа'}
+            'group': 'Группа',
+            'image': 'Картинка'}
 
         help_texts = {
             'text': 'Текст нового поста, не оставляй его пустым',
