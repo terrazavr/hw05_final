@@ -21,6 +21,7 @@ from posts.tests.constants import (
     POST_DETAIL_TEMPLATE,
     POST_CREATE_EDIT_TEMPLATE,
     COMMENTS_URL,
+    FOLLOW_TEMPLATE,
 )
 
 
@@ -129,8 +130,16 @@ class PostURLTests(TestCase):
             f'/posts/{self.post.id}/': POST_DETAIL_TEMPLATE,
             '/create/': POST_CREATE_EDIT_TEMPLATE,
             f'/posts/{self.post.id}/edit/': POST_CREATE_EDIT_TEMPLATE,
+            '/follow/': FOLLOW_TEMPLATE,
         }
         for url, template in urls_templates.items():
             with self.subTest(url=url):
                 response = self.authorized_client.get(url)
                 self.assertTemplateUsed(response, template)
+
+    def test_follow_page(self):
+        """Страница подписки доступна
+        только авторизованному пользователю.
+        """
+        response = self.authorized_client.get('/follow/')
+        self.assertEqual(response.status_code, HTTPStatus.OK)

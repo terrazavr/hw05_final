@@ -16,6 +16,7 @@ GROUP_LIST_TEMPLATE = 'posts/group_list.html'
 PROFILE_TEMPLATE = 'posts/profile.html'
 POST_DETAIL_TEMPLATE = 'posts/post_detail.html'
 POST_CREATE_EDIT_TEMPLATE = 'posts/create_post.html'
+FOLLOW_TEMPLATE = 'posts/follow.html'
 
 POST_IN_PAGE = 10
 POST_IN_2PAGE = 3
