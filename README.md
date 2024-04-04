@@ -26,7 +26,7 @@
 
 1. Клонируйте репозиторий с помощью команды __git clone__
 
-2. Создайте виртуальное окружение активируйте и установите зависимости
+2. Создайте виртуальное окружение:
 ```
 python3 -m venv venv
 source venv/bin/activate
@@ -36,20 +36,20 @@ source venv/bin/activate
 python3 -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
-4. Выполните миграции на уровне проекта и соберите статику
+4. Выполните миграции на уровне проекта и соберите статику:
 ```
 python3 manage.py makemigrations
 python manage.py migrate
 python manage.py collectstatic
 ```
-5. Создайте суперпользователя Django для работы с админ-панелью
+5. Создайте суперпользователя Django для работы с админ-панелью:
 ```
 python manage.py createsuperuser
 
 # адрес панели администратора после запуска проекта будет по адресу:
 http://127.0.0.1:8000/admin
 ```
-6. Запустите проект локально
+6. Запустите проект локально:
 ```
 python manage.py runserver
 ```
